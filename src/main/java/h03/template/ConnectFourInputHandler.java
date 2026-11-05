@@ -172,7 +172,8 @@ public class ConnectFourInputHandler {
                 return -1;
             }
         } catch (CrashException e) {
-            System.err.println("Methods testWinConditions or isGameBoardFull contain an crash statement:\n " + e);
+            System.err.println("Warning: Methods testWinConditions or isGameBoardFull still contain a crash statement. "
+                + "You can remove it when you reach the respective tasks later.");
         }
 
         try {
