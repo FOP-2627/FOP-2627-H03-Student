@@ -3,6 +3,7 @@ package h03.template;
 import fopbot.RobotFamily;
 import fopbot.World;
 import h03.ConnectFour;
+import org.tudalgo.algoutils.student.CrashException;
 import org.tudalgo.algoutils.student.annotation.DoNotTouch;
 
 import javax.swing.*;
@@ -161,13 +162,17 @@ public class ConnectFourInputHandler {
             "<html>Click on a column to insert a stone.<br>Current Player: %s</html>".formatted(currentPlayer.getName())
         );
 
-        if (ConnectFour.testWinConditions(stones, currentPlayer)) {
-            rowSelectMode.set(false);
-            displayWinnerStatus(currentPlayer);
-        } else if (ConnectFour.isGameBoardFull(stones)) {
-            rowSelectMode.set(false);
-            displayDrawStatus();
-            return -1;
+        try {
+            if (ConnectFour.testWinConditions(stones, currentPlayer)) {
+                rowSelectMode.set(false);
+                displayWinnerStatus(currentPlayer);
+            } else if (ConnectFour.isGameBoardFull(stones)) {
+                rowSelectMode.set(false);
+                displayDrawStatus();
+                return -1;
+            }
+        } catch (CrashException e) {
+            System.err.println("Methods testWinConditions or isGameBoardFull contain an crash statement:\n " + e);
         }
 
         try {
