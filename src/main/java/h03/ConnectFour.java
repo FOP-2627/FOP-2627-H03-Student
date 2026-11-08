@@ -1,5 +1,7 @@
 package h03;
 
+import fopbot.Direction;
+import fopbot.Robot;
 import fopbot.RobotFamily;
 import fopbot.World;
 import h03.template.ConnectFourInputHandler;
@@ -77,7 +79,7 @@ public class ConnectFour {
     @StudentImplementationRequired("H3.2.1")
     public static boolean validateInput(RobotFamily[][] stones, int column) {
         // TODO: H3.2.1
-        return org.tudalgo.algoutils.student.Student.crash("H3.2.1 - Remove if implemented");
+        return true;
     }
 
     /**
